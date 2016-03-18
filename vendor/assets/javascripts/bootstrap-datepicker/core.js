@@ -1077,6 +1077,12 @@
 					else {
 						this.picker.find('.next').css({visibility: 'visible'});
 					}
+					if (this.o.startDate !== -Infinity && year <= this.o.startDate.getUTCFullYear()){
+						this.picker.find('.prevy').css({visibility: 'hidden'});
+					}
+					else {
+						this.picker.find('.prevy').css({visibility: 'visible'});
+					}
 					break;
 				case 1:
 				case 2:
@@ -1123,6 +1129,13 @@
 											this._trigger('changeYear', this.viewDate);
 										break;
 								}
+								this.fill();
+								break;
+							case 'prevy':
+							case 'nexty':
+								var dir = DPGlobal.modes[1].navStep * (target[0].className === 'prevy' ? -1 : 1);
+								this.viewDate = this.moveYear(this.viewDate, dir);
+								this._trigger('changeYear', this.viewDate);
 								this.fill();
 								break;
 							case 'today':
@@ -1832,9 +1845,11 @@
 			                '<th colspan="7" class="datepicker-title"></th>'+
 			              '</tr>'+
 							'<tr>'+
-								'<th class="prev">&#171;</th>'+
-								'<th colspan="5" class="datepicker-switch"></th>'+
-								'<th class="next">&#187;</th>'+
+								'<th class="prevy"><i class="fa fa-angle-double-left"></th>'+
+								'<th class="prev"><i class="fa fa-angle-left"></i></th>'+
+								'<th colspan="3" class="datepicker-switch"></th>'+
+								'<th class="next"><i class="fa fa-angle-right"></i></th>'+
+								'<th class="nexty"><i class="fa fa-angle-double-right"></i></th>'+
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',

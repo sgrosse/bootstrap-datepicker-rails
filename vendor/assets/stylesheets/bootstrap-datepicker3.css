@@ -708,13 +708,17 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .datepicker .datepicker-switch,
 .datepicker .prev,
+.datepicker .prevy,
 .datepicker .next,
+.datepicker .nexty,
 .datepicker tfoot tr th {
   cursor: pointer;
 }
 .datepicker .datepicker-switch:hover,
+.datepicker .prevy:hover,
 .datepicker .prev:hover,
 .datepicker .next:hover,
+.datepicker .nexty:hover,
 .datepicker tfoot tr th:hover {
   background: #eeeeee;
 }
